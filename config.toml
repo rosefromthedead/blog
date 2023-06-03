@@ -1,11 +1,16 @@
 # The URL the site will be built for
 base_url = "https://blog.krx.sh"
 title = "//TODO(rose)"
+author = "Rose Hudson"
+default_language = "en"
 theme = "pizza"
 
 compile_sass = true
 build_search_index = false
 minify_html = true
+
+generate_feed = true
+feed_filename = "atom.xml"
 
 [markdown]
 # Whether to do syntax highlighting
