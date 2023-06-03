@@ -4,7 +4,7 @@ date = "2021-10-31"
 path = "about/"
 +++
 
-Hi! I'm Rose. I'm a first year CS student at the University of Bristol, and I'm
+Hi! I'm Rose. I'm a second year CS student at the University of Bristol, and I'm
 in love with Rust. I want it to take over the world some day. When I'm not
 fangirling over Rust, I'm usually complaining about something else, but don't
 let that fool you. A lot of stuff is actually quite cool, in my opinion.
