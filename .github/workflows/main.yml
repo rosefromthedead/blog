@@ -13,4 +13,4 @@ jobs:
           # Target branch
           PAGES_BRANCH: public
           # Provide personal access token
-          TOKEN: ${{ secrets.TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
