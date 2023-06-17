@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>&#x2F;&#x2F;TODO(rose)</title>
+    <link href="https://blog.krx.sh/gsoc23/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://blog.krx.sh/gsoc23/"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2023-06-17T00:00:00+00:00</updated>
+    <id>https://blog.krx.sh/gsoc23/atom.xml</id>
+    <entry xml:lang="en">
+        <title>GSoC status report 2</title>
+        <published>2023-06-17T00:00:00+00:00</published>
+        <updated>2023-06-17T00:00:00+00:00</updated>
+        <author>
+          <name>Rose Hudson</name>
+        </author>
+        <link rel="alternate" href="https://blog.krx.sh/gsoc23/2/" type="text/html"/>
+        <id>https://blog.krx.sh/gsoc23/2/</id>
+        
+        <summary type="html">&lt;p&gt;The world tried to stop me, but I pushed through and got some work done on
+wlroots.&lt;&#x2F;p&gt;
+</summary>
+        
+        <content type="html">&lt;p&gt;The world tried to stop me, but I pushed through and got some work done on
+wlroots.&lt;&#x2F;p&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h2 id=&quot;hurdles&quot;&gt;&lt;a class=&quot;anchor-link&quot; href=&quot;#hurdles&quot; aria-label=&quot;Anchor link for: hurdles&quot;&gt;&amp;num;&lt;&#x2F;a&gt;
+Hurdles&lt;&#x2F;h2&gt;
+&lt;p&gt;Unfortunately aside from programming I have a physical form that I have to take
+care of. Recently this form&#x27;s hands have been hurting because of strain from
+typing, which is pretty rude of them, so I took some time out to build &lt;a href=&quot;https:&#x2F;&#x2F;splitkb.com&#x2F;collections&#x2F;keyboard-kits&#x2F;products&#x2F;kyria-rev3-pcb-kit&quot;&gt;a
+keyboard&lt;&#x2F;a&gt;. Woe is me, having to spend my time soldering and cutting. I
+had a great time. After finishing the keyboard, all of a sudden it was time to
+move out, so we packed and shuffled and drove and unpacked and complained about
+the trains in this country. Then I slept, and yesterday I finally found the time
+to get back to work. This is why there was no update last week.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;progress&quot;&gt;&lt;a class=&quot;anchor-link&quot; href=&quot;#progress&quot; aria-label=&quot;Anchor link for: progress&quot;&gt;&amp;num;&lt;&#x2F;a&gt;
+Progress&lt;&#x2F;h2&gt;
+&lt;p&gt;I&#x27;ve decided that I need consistent terms for the subtasks I have. So:
+&lt;em&gt;measurement&lt;&#x2F;em&gt; is reading how long a frame takes to render, &lt;em&gt;prediction&lt;&#x2F;em&gt; is
+coming up with a number of milliseconds, and &lt;em&gt;scheduling&lt;&#x2F;em&gt; is delaying by that
+number and all the API funk therein. It turns out that Simon was right and there
+is a lot of API funk for me to deal with. We&#x27;ve had some discussions about &lt;a href=&quot;https:&#x2F;&#x2F;gitlab.freedesktop.org&#x2F;wlroots&#x2F;wlroots&#x2F;-&#x2F;issues&#x2F;3664&quot;&gt;what
+exactly &lt;code&gt;wlr_output.events.frame&lt;&#x2F;code&gt; is for&lt;&#x2F;a&gt; and whether we really need it,
+and I&#x27;ve &lt;a href=&quot;https:&#x2F;&#x2F;gitlab.freedesktop.org&#x2F;rosefromthedead&#x2F;wlroots&#x2F;-&#x2F;tree&#x2F;scheduling&quot;&gt;implemented a scheduling mechanism&lt;&#x2F;a&gt; based on that signal
+to show how we can make good use of it.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;gitlab.freedesktop.org&#x2F;rosefromthedead&#x2F;wlroots&#x2F;-&#x2F;tree&#x2F;experiments&quot;&gt;Bringing together&lt;&#x2F;a&gt; this scheduling, the timer from the first
+status report for measurement, and some naive prediction (next frame takes at
+most 1ms more than last frame) christens tinywl as the first user of all this
+mess. Here are some screenshots from &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mikesart&#x2F;gpuvis&quot;&gt;GPUVis&lt;&#x2F;a&gt; showing the old, boring timeline
+where we rendered immediately after the last present, and the new, sexy timeline
+where we render immediately before the next one! The purple lines are vblanks,
+and the boxes in each row represent durations when those processes were running
+on the CPU. I think blue lines are GPU submissions, but the naming is unclear.&lt;&#x2F;p&gt;
+&lt;p&gt;
+&lt;img src=&quot;https:&amp;#x2F;&amp;#x2F;blog.krx.sh&amp;#x2F;processed_images&amp;#x2F;tinywl-before.8c120fcfbc9d96b4.png&quot; &#x2F;&gt;
+
+
+&lt;img src=&quot;https:&amp;#x2F;&amp;#x2F;blog.krx.sh&amp;#x2F;processed_images&amp;#x2F;tinywl-after.9797a59343db53a3.png&quot; &#x2F;&gt;
+&lt;&#x2F;p&gt;
+&lt;p&gt;Wow, isn&#x27;t that beautiful.&lt;&#x2F;p&gt;
+</content>
+    </entry>
+    <entry xml:lang="en">
+        <title>GSoC status report 1</title>
+        <published>2023-06-03T00:00:00+00:00</published>
+        <updated>2023-06-03T00:00:00+00:00</updated>
+        <author>
+          <name>Rose Hudson</name>
+        </author>
+        <link rel="alternate" href="https://blog.krx.sh/gsoc23/1/" type="text/html"/>
+        <id>https://blog.krx.sh/gsoc23/1/</id>
+        
+        <summary type="html">&lt;p&gt;The first week of GSoC is over! I&#x27;m working on presentation scheduling in
+wlroots. Here&#x27;s how it&#x27;s going.&lt;&#x2F;p&gt;
+</summary>
+        
+        <content type="html">&lt;p&gt;The first week of GSoC is over! I&#x27;m working on presentation scheduling in
+wlroots. Here&#x27;s how it&#x27;s going.&lt;&#x2F;p&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h2 id=&quot;the-task&quot;&gt;&lt;a class=&quot;anchor-link&quot; href=&quot;#the-task&quot; aria-label=&quot;Anchor link for: the-task&quot;&gt;&amp;num;&lt;&#x2F;a&gt;
+The Task&lt;&#x2F;h2&gt;
+&lt;p&gt;Currently in wlroots, the easy and obvious frame schedule for compositors to
+implement is one where Wayland clients and the compositor are both told to
+render a new frame as soon as the last one makes it to the screen. This means
+that clients are almost guaranteed to miss the deadline for this cycle, and
+their frame submissions will only make it into the compositor&#x27;s renderer in the
+next cycle. With this schedule, there are two frames of latency between a client
+receiving some user input and the new content making it to the screen.&lt;&#x2F;p&gt;
+&lt;p&gt;If the compositor starts rendering later then clients are more likely to have
+submitted the frame that was most recently triggered. The tradeoff is that the
+compositor is less likely to hit its own deadline. It&#x27;s like the computer is
+playing The Price Is Right for every frame, and I&#x27;m in control of how it
+guesses.&lt;&#x2F;p&gt;
+&lt;p&gt;I&#x27;m trying to make a smarter frame schedule (where the computer is really good
+at the game) be another easy and obvious schedule for wlroots compositors to
+use, so the whole ecosystem can win without having to faff about implementing it
+themselves.&lt;&#x2F;p&gt;
+&lt;p&gt;Thanks to &lt;a href=&quot;https:&#x2F;&#x2F;emersion.fr&quot;&gt;Simon&lt;&#x2F;a&gt; for the idea and for mentoring me.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;this-week&quot;&gt;&lt;a class=&quot;anchor-link&quot; href=&quot;#this-week&quot; aria-label=&quot;Anchor link for: this-week&quot;&gt;&amp;num;&lt;&#x2F;a&gt;
+This week&lt;&#x2F;h2&gt;
+&lt;p&gt;I quickly implemented &lt;a href=&quot;https:&#x2F;&#x2F;gitlab.freedesktop.org&#x2F;wlroots&#x2F;wlroots&#x2F;-&#x2F;merge_requests&#x2F;4147&quot;&gt;a way for compositors to delay rendering&lt;&#x2F;a&gt; by a
+specified number of milliseconds, and Kenny quickly pointed out that the way I
+did it was silly. Since then, I have a much better understanding of what
+actually happens for each frame in wlroots. Thanks Kenny!&lt;&#x2F;p&gt;
+&lt;p&gt;After that review and a bit more discussion I gave it another go, but didn&#x27;t
+submit it yet because I haven&#x27;t finished polishing it. While I was doing that,
+I was brutally reminded that the C compiler does not care about me and will not
+attempt to help at all. Don&#x27;t forget to enable your sanitizers, reader. Arguably
+I deserved it, because I had recently commented on how I was enjoying writing C
+for a change. Don&#x27;t fall into the same trap as me; C does not want you to enjoy
+it.&lt;&#x2F;p&gt;
+&lt;p&gt;I also wrote &lt;a href=&quot;https:&#x2F;&#x2F;gitlab.freedesktop.org&#x2F;wlroots&#x2F;wlroots&#x2F;-&#x2F;merge_requests&#x2F;4159&quot;&gt;a new API&lt;&#x2F;a&gt; that allows you to find out how long it took to
+render a frame. For now, this is only implemented on the GLES2 backend. Storing
+this time for the last few frames is a good way to make an educated guess on the
+time for the next one, and by also knowing your monitor&#x27;s (maximum) refresh rate
+you can come up with a reasonable duration to delay rendering by.&lt;&#x2F;p&gt;
+&lt;p&gt;In testing the render timer I discovered that my test machine takes a whopping 4
+milliseconds to paint the screen a solid colour. A valuable lesson lies here:
+don&#x27;t ask questions if you&#x27;re not strong enough to hear the answer. Or maybe
+&amp;quot;damage tracking is good&amp;quot;.&lt;&#x2F;p&gt;
+&lt;p&gt;See you next week!&lt;&#x2F;p&gt;
+</content>
+    </entry>
+</feed>

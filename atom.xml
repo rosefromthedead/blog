@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>&#x2F;&#x2F;TODO(rose)</title>
+    <link href="https://blog.krx.sh/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://blog.krx.sh"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2023-06-17T00:00:00+00:00</updated>
+    <id>https://blog.krx.sh/atom.xml</id>
+    <entry xml:lang="en">
+        <title>GSoC status report 2</title>
+        <published>2023-06-17T00:00:00+00:00</published>
+        <updated>2023-06-17T00:00:00+00:00</updated>
+        <author>
+          <name>Rose Hudson</name>
+        </author>
+        <link rel="alternate" href="https://blog.krx.sh/gsoc23/2/" type="text/html"/>
+        <id>https://blog.krx.sh/gsoc23/2/</id>
+        
+        <summary type="html">&lt;p&gt;The world tried to stop me, but I pushed through and got some work done on
+wlroots.&lt;&#x2F;p&gt;
+</summary>
+        
+        <content type="html">&lt;p&gt;The world tried to stop me, but I pushed through and got some work done on
+wlroots.&lt;&#x2F;p&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h2 id=&quot;hurdles&quot;&gt;&lt;a class=&quot;anchor-link&quot; href=&quot;#hurdles&quot; aria-label=&quot;Anchor link for: hurdles&quot;&gt;&amp;num;&lt;&#x2F;a&gt;
+Hurdles&lt;&#x2F;h2&gt;
+&lt;p&gt;Unfortunately aside from programming I have a physical form that I have to take
+care of. Recently this form&#x27;s hands have been hurting because of strain from
+typing, which is pretty rude of them, so I took some time out to build &lt;a href=&quot;https:&#x2F;&#x2F;splitkb.com&#x2F;collections&#x2F;keyboard-kits&#x2F;products&#x2F;kyria-rev3-pcb-kit&quot;&gt;a
+keyboard&lt;&#x2F;a&gt;. Woe is me, having to spend my time soldering and cutting. I
+had a great time. After finishing the keyboard, all of a sudden it was time to
+move out, so we packed and shuffled and drove and unpacked and complained about
+the trains in this country. Then I slept, and yesterday I finally found the time
+to get back to work. This is why there was no update last week.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;progress&quot;&gt;&lt;a class=&quot;anchor-link&quot; href=&quot;#progress&quot; aria-label=&quot;Anchor link for: progress&quot;&gt;&amp;num;&lt;&#x2F;a&gt;
+Progress&lt;&#x2F;h2&gt;
+&lt;p&gt;I&#x27;ve decided that I need consistent terms for the subtasks I have. So:
+&lt;em&gt;measurement&lt;&#x2F;em&gt; is reading how long a frame takes to render, &lt;em&gt;prediction&lt;&#x2F;em&gt; is
+coming up with a number of milliseconds, and &lt;em&gt;scheduling&lt;&#x2F;em&gt; is delaying by that
+number and all the API funk therein. It turns out that Simon was right and there
+is a lot of API funk for me to deal with. We&#x27;ve had some discussions about &lt;a href=&quot;https:&#x2F;&#x2F;gitlab.freedesktop.org&#x2F;wlroots&#x2F;wlroots&#x2F;-&#x2F;issues&#x2F;3664&quot;&gt;what
+exactly &lt;code&gt;wlr_output.events.frame&lt;&#x2F;code&gt; is for&lt;&#x2F;a&gt; and whether we really need it,
+and I&#x27;ve &lt;a href=&quot;https:&#x2F;&#x2F;gitlab.freedesktop.org&#x2F;rosefromthedead&#x2F;wlroots&#x2F;-&#x2F;tree&#x2F;scheduling&quot;&gt;implemented a scheduling mechanism&lt;&#x2F;a&gt; based on that signal
+to show how we can make good use of it.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;gitlab.freedesktop.org&#x2F;rosefromthedead&#x2F;wlroots&#x2F;-&#x2F;tree&#x2F;experiments&quot;&gt;Bringing together&lt;&#x2F;a&gt; this scheduling, the timer from the first
+status report for measurement, and some naive prediction (next frame takes at
+most 1ms more than last frame) christens tinywl as the first user of all this
+mess. Here are some screenshots from &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mikesart&#x2F;gpuvis&quot;&gt;GPUVis&lt;&#x2F;a&gt; showing the old, boring timeline
+where we rendered immediately after the last present, and the new, sexy timeline
+where we render immediately before the next one! The purple lines are vblanks,
+and the boxes in each row represent durations when those processes were running
+on the CPU. I think blue lines are GPU submissions, but the naming is unclear.&lt;&#x2F;p&gt;
+&lt;p&gt;
+&lt;img src=&quot;https:&amp;#x2F;&amp;#x2F;blog.krx.sh&amp;#x2F;processed_images&amp;#x2F;tinywl-before.8c120fcfbc9d96b4.png&quot; &#x2F;&gt;
+
+
+&lt;img src=&quot;https:&amp;#x2F;&amp;#x2F;blog.krx.sh&amp;#x2F;processed_images&amp;#x2F;tinywl-after.9797a59343db53a3.png&quot; &#x2F;&gt;
+&lt;&#x2F;p&gt;
+&lt;p&gt;Wow, isn&#x27;t that beautiful.&lt;&#x2F;p&gt;
+</content>
+    </entry>
+    <entry xml:lang="en">
+        <title>GSoC status report 1</title>
+        <published>2023-06-03T00:00:00+00:00</published>
+        <updated>2023-06-03T00:00:00+00:00</updated>
+        <author>
+          <name>Rose Hudson</name>
+        </author>
+        <link rel="alternate" href="https://blog.krx.sh/gsoc23/1/" type="text/html"/>
+        <id>https://blog.krx.sh/gsoc23/1/</id>
+        
+        <summary type="html">&lt;p&gt;The first week of GSoC is over! I&#x27;m working on presentation scheduling in
+wlroots. Here&#x27;s how it&#x27;s going.&lt;&#x2F;p&gt;
+</summary>
+        
+        <content type="html">&lt;p&gt;The first week of GSoC is over! I&#x27;m working on presentation scheduling in
+wlroots. Here&#x27;s how it&#x27;s going.&lt;&#x2F;p&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h2 id=&quot;the-task&quot;&gt;&lt;a class=&quot;anchor-link&quot; href=&quot;#the-task&quot; aria-label=&quot;Anchor link for: the-task&quot;&gt;&amp;num;&lt;&#x2F;a&gt;
+The Task&lt;&#x2F;h2&gt;
+&lt;p&gt;Currently in wlroots, the easy and obvious frame schedule for compositors to
+implement is one where Wayland clients and the compositor are both told to
+render a new frame as soon as the last one makes it to the screen. This means
+that clients are almost guaranteed to miss the deadline for this cycle, and
+their frame submissions will only make it into the compositor&#x27;s renderer in the
+next cycle. With this schedule, there are two frames of latency between a client
+receiving some user input and the new content making it to the screen.&lt;&#x2F;p&gt;
+&lt;p&gt;If the compositor starts rendering later then clients are more likely to have
+submitted the frame that was most recently triggered. The tradeoff is that the
+compositor is less likely to hit its own deadline. It&#x27;s like the computer is
+playing The Price Is Right for every frame, and I&#x27;m in control of how it
+guesses.&lt;&#x2F;p&gt;
+&lt;p&gt;I&#x27;m trying to make a smarter frame schedule (where the computer is really good
+at the game) be another easy and obvious schedule for wlroots compositors to
+use, so the whole ecosystem can win without having to faff about implementing it
+themselves.&lt;&#x2F;p&gt;
+&lt;p&gt;Thanks to &lt;a href=&quot;https:&#x2F;&#x2F;emersion.fr&quot;&gt;Simon&lt;&#x2F;a&gt; for the idea and for mentoring me.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;this-week&quot;&gt;&lt;a class=&quot;anchor-link&quot; href=&quot;#this-week&quot; aria-label=&quot;Anchor link for: this-week&quot;&gt;&amp;num;&lt;&#x2F;a&gt;
+This week&lt;&#x2F;h2&gt;
+&lt;p&gt;I quickly implemented &lt;a href=&quot;https:&#x2F;&#x2F;gitlab.freedesktop.org&#x2F;wlroots&#x2F;wlroots&#x2F;-&#x2F;merge_requests&#x2F;4147&quot;&gt;a way for compositors to delay rendering&lt;&#x2F;a&gt; by a
+specified number of milliseconds, and Kenny quickly pointed out that the way I
+did it was silly. Since then, I have a much better understanding of what
+actually happens for each frame in wlroots. Thanks Kenny!&lt;&#x2F;p&gt;
+&lt;p&gt;After that review and a bit more discussion I gave it another go, but didn&#x27;t
+submit it yet because I haven&#x27;t finished polishing it. While I was doing that,
+I was brutally reminded that the C compiler does not care about me and will not
+attempt to help at all. Don&#x27;t forget to enable your sanitizers, reader. Arguably
+I deserved it, because I had recently commented on how I was enjoying writing C
+for a change. Don&#x27;t fall into the same trap as me; C does not want you to enjoy
+it.&lt;&#x2F;p&gt;
+&lt;p&gt;I also wrote &lt;a href=&quot;https:&#x2F;&#x2F;gitlab.freedesktop.org&#x2F;wlroots&#x2F;wlroots&#x2F;-&#x2F;merge_requests&#x2F;4159&quot;&gt;a new API&lt;&#x2F;a&gt; that allows you to find out how long it took to
+render a frame. For now, this is only implemented on the GLES2 backend. Storing
+this time for the last few frames is a good way to make an educated guess on the
+time for the next one, and by also knowing your monitor&#x27;s (maximum) refresh rate
+you can come up with a reasonable duration to delay rendering by.&lt;&#x2F;p&gt;
+&lt;p&gt;In testing the render timer I discovered that my test machine takes a whopping 4
+milliseconds to paint the screen a solid colour. A valuable lesson lies here:
+don&#x27;t ask questions if you&#x27;re not strong enough to hear the answer. Or maybe
+&amp;quot;damage tracking is good&amp;quot;.&lt;&#x2F;p&gt;
+&lt;p&gt;See you next week!&lt;&#x2F;p&gt;
+</content>
+    </entry>
+    <entry xml:lang="en">
+        <title>GPUs, Part 3: An Example Program</title>
+        <published>2022-01-31T00:00:00+00:00</published>
+        <updated>2022-01-31T00:00:00+00:00</updated>
+        <author>
+          <name>Rose Hudson</name>
+        </author>
+        <link rel="alternate" href="https://blog.krx.sh/gpus/3-first-program/" type="text/html"/>
+        <id>https://blog.krx.sh/gpus/3-first-program/</id>
+        
+        <summary type="html">&lt;p&gt;Now that we&#x27;ve seen some of the theory behind GPUs, it&#x27;s time to see how it
+works in practice. How can a lowly mortal like me speak to a Titan (heh)? What
+do we need to know before going in? Comes with free wgpu tutorial.&lt;&#x2F;p&gt;
+</summary>
+        
+        <content type="html">&lt;p&gt;Now that we&#x27;ve seen some of the theory behind GPUs, it&#x27;s time to see how it
+works in practice. How can a lowly mortal like me speak to a Titan (heh)? What
+do we need to know before going in? Comes with free wgpu tutorial.&lt;&#x2F;p&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h2 id=&quot;shaders-and-the-opengl-model&quot;&gt;&lt;a class=&quot;anchor-link&quot; href=&quot;#shaders-and-the-opengl-model&quot; aria-label=&quot;Anchor link for: shaders-and-the-opengl-model&quot;&gt;&amp;num;&lt;&#x2F;a&gt;
+Shaders and the OpenGL model&lt;&#x2F;h2&gt;
+&lt;p&gt;There are some differing opinions on what to call a program that runs on a GPU.
+It seems that people from graphics land call them shaders, because they are
+generally used to calculate the colour or light level of an object. There are a
+few types of shader and each has its own constraints, but the most generic one
+and the one that we are interested in is the compute shader. In compute land,
+they are called kernels, but there&#x27;s already a thing called kernel and &amp;quot;shader&amp;quot;
+sounds cooler to me so we&#x27;re going with that.&lt;&#x2F;p&gt;
+&lt;p&gt;Since there are so many types of GPU, programs tend to be stored in some
+intermediate format and compiled to target a certain architecture at runtime.
+This compilation is performed by the driver, which allows it to be
+device-specific. We can see this reflected in OpenGL, where the API ingests
+shaders written in GLSL. This means there is no ahead-of-time compilation step
+needed if you&#x27;re happy to write your shaders in GLSL. Vulkan takes a slightly
+different approach by ingesting SPIR-V which is a binary format, one step below
+the human-friendly GLSL, but still above the hardware in terms of abstraction.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;gl-globalinvocationid&quot;&gt;&lt;a class=&quot;anchor-link&quot; href=&quot;#gl-globalinvocationid&quot; aria-label=&quot;Anchor link for: gl-globalinvocationid&quot;&gt;&amp;num;&lt;&#x2F;a&gt;
+&lt;code&gt;gl_GlobalInvocationID&lt;&#x2F;code&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;Things get a little funky in this section, so hold on tight. Work done by
+compute shaders tends to be intuitively divisible into chunks which exist in
+some n-dimensional space. For example, a shader which modifies every pixel of an
+800x600 image in some way can have its work divided into 800 * 600 = 480000
+chunks, one for each pixel. These chunks can be named using the coordinates of
+the pixel they work on, and so the chunks exist in 2-dimensional space.&lt;&#x2F;p&gt;
+&lt;p&gt;In this case, the programmer can write a shader that operates on one pixel, and
+in OpenGL terms, use &lt;code&gt;glDispatchCompute(800, 600, 1)&lt;&#x2F;code&gt; to run the compute shader.
+The arguments to this function specify how many instances of the shader will be
+run in each dimension of x, y, and z. Here, z is 1 because the image is
+2-dimensional. This size is called &lt;code&gt;gl_NumWorkGroups&lt;&#x2F;code&gt;. But wait, I hear you say,
+why is one unit of work called a work group?&lt;&#x2F;p&gt;
+&lt;p&gt;Enter the funk, stage left. Recall that &lt;code&gt;gl_NumWorkGroups&lt;&#x2F;code&gt; tells us how many
+&lt;em&gt;instances of the shader&lt;&#x2F;em&gt; will be run. Well, the shader itself has a
+&lt;code&gt;gl_WorkGroupSize&lt;&#x2F;code&gt;, which is another 3-dimensional size that represents how many
+times the code will be run, per instance of the shader.&lt;&#x2F;p&gt;
+&lt;p&gt;This means that your code runs inside a... 6-orthotope? 🤔&lt;&#x2F;p&gt;
+&lt;p&gt;I can&#x27;t think of a great example for this, but suppose the image processing
+shader actually operated on 4x4 groups of pixels. This is when you could use a
+4x4x1 &lt;code&gt;gl_WorkGroupSize&lt;&#x2F;code&gt; and a 200x150x1 &lt;code&gt;gl_NumWorkGroups&lt;&#x2F;code&gt;. The general idea is
+that communication will be faster between threads within a work group than it
+will be across work groups.&lt;&#x2F;p&gt;
+&lt;p&gt;All of these &lt;code&gt;gl_*&lt;&#x2F;code&gt; variables are accessible from within the shader, along with
+a couple that I haven&#x27;t mentioned. &lt;code&gt;gl_LocalInvocationID&lt;&#x2F;code&gt; is a 3D representation
+of which unit within a work group is currently being run, and &lt;code&gt;gl_WorkGroupID&lt;&#x2F;code&gt;
+represents which work group within the entire dispatch is being run. The most
+important one is probably &lt;code&gt;gl_GlobalInvocationID&lt;&#x2F;code&gt;, which is a 3D identifier that
+is unique across all invocations of your code. It is defined as
+&lt;code&gt;gl_WorkGroupID * gl_WorkGroupSize + gl_LocalInvocationID&lt;&#x2F;code&gt;, which has the nice
+effect of meaning that you can use it as an index into some data. In the image
+example, the shader code could use &lt;code&gt;gl_GlobalInvocationID&lt;&#x2F;code&gt; directly to access
+its respective pixel from the image. Nice!&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;wgpu&quot;&gt;&lt;a class=&quot;anchor-link&quot; href=&quot;#wgpu&quot; aria-label=&quot;Anchor link for: wgpu&quot;&gt;&amp;num;&lt;&#x2F;a&gt;
+wgpu&lt;&#x2F;h2&gt;
+&lt;p&gt;APIs for working with GPUs are scary, they have a lot of long words, and
+worst of all are usually designed for C programmers. wgpu is an exception to at
+least one of these rules, because it provides a relatively nice Rust interface
+while retaining design choices of things like Vulkan that allow you relatively
+close access to GPU (or driver) behaviour. It also supports multiple backends,
+so you can write code in terms of wgpu and run it on systems supporting Vulkan,
+Metal, and a couple of versions of DirectX, among others.&lt;&#x2F;p&gt;
+&lt;p&gt;Before anything can be done with wgpu, you must start with an &lt;code&gt;Instance&lt;&#x2F;code&gt;. While
+creating this object, a backend is chosen. Then, this instance can be used to
+create an &lt;code&gt;Adapter&lt;&#x2F;code&gt;, which is like a physical device. At this point, you can
+specify whether to use a low power adapter or a high performance one, and
+provide information about window systems if you intend to render to a window.
+The next link in the chain is called &lt;code&gt;Device&lt;&#x2F;code&gt;, which is more like a session on a
+device than the device itself. Poor naming, in my opinion. &lt;code&gt;Device&lt;&#x2F;code&gt; is part of a
+package deal with &lt;code&gt;Queue&lt;&#x2F;code&gt; - the former allows control over resources and the
+latter allows control over actions.&lt;&#x2F;p&gt;
+&lt;p&gt;When shaders are running, they need to have access to some objects to work on.
+There are a few types of these, but the simplest is the buffer, which is a
+contiguous region in memory. Objects like these are the main way for GPUs to
+communicate with the rest of a computer, and they can be constructed using the
+methods on &lt;code&gt;Device&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;To start with, these methods can be used to create a &lt;code&gt;BindGroupLayout&lt;&#x2F;code&gt; which is
+a template for a group of objects and their properties. For example, a
+&lt;code&gt;BindGroupLayout&lt;&#x2F;code&gt; might describe two read-only buffers which are visible to
+compute shaders and are at least 4096 bytes in size. Then, a &lt;code&gt;BindGroup&lt;&#x2F;code&gt; can be
+created which has this layout, by naming two buffers with those properties.&lt;&#x2F;p&gt;
+&lt;p&gt;To use a compute shader, you need a &amp;quot;compute pipeline&amp;quot;, which is an object that
+holds the shader and some bind group layouts. Telling a GPU to run a shader
+(after you&#x27;ve done all the setup) is done using command buffers, which are built
+using command encoders. These commands have semantics like &amp;quot;run this compute
+pipeline using these bind groups&amp;quot;, and such a command also contains a size in x,
+y, and z, which are equivalent to the arguments we saw being passed to
+&lt;code&gt;glDispatchCompute&lt;&#x2F;code&gt; earlier. The command buffer can be submitted to the GPU via
+the &lt;code&gt;Queue&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;like-hello-world-but-worse&quot;&gt;&lt;a class=&quot;anchor-link&quot; href=&quot;#like-hello-world-but-worse&quot; aria-label=&quot;Anchor link for: like-hello-world-but-worse&quot;&gt;&amp;num;&lt;&#x2F;a&gt;
+Like &amp;quot;Hello, World!&amp;quot; but worse&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;em&gt;The code for this section is available
+&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;rosehuds&#x2F;gpu-playground&#x2F;tree&#x2F;main&#x2F;wgpu&quot;&gt;here&lt;&#x2F;a&gt;.
+If you clone the repository, note that this link points to a specific commit,
+and not the main branch. I won&#x27;t write any of the CPU-side code in here, because
+it&#x27;s basically a translation of the previous section into Rust. All you need to
+know is it runs the shader with a size of (64, 1, 1), passing it a buffer of 512
+* 4 bytes, and finally prints the contents of the buffer.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Now that we know how to run a compute shader, all that&#x27;s left is knowing how to
+write one. For this, I use rust-gpu. Diving right in, here&#x27;s an example shader:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span&gt;#![&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;cfg_attr&lt;&#x2F;span&gt;&lt;span&gt;(
+&lt;&#x2F;span&gt;&lt;span&gt;    target_arch = &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;spirv&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;feature&lt;&#x2F;span&gt;&lt;span&gt;(register_attr),
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;register_attr&lt;&#x2F;span&gt;&lt;span&gt;(spirv),
+&lt;&#x2F;span&gt;&lt;span&gt;    no_std
+&lt;&#x2F;span&gt;&lt;span&gt;)]
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;extern crate&lt;&#x2F;span&gt;&lt;span&gt; spirv_std;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;use &lt;&#x2F;span&gt;&lt;span&gt;spirv_std::glam::UVec3;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;#[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;spirv&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;compute&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;threads&lt;&#x2F;span&gt;&lt;span&gt;(8, 1, 1)))]
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;pub fn &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;main_cs&lt;&#x2F;span&gt;&lt;span&gt;(
+&lt;&#x2F;span&gt;&lt;span&gt;    #[spirv(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;global_invocation_id&lt;&#x2F;span&gt;&lt;span&gt;)]
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;gid&lt;&#x2F;span&gt;&lt;span&gt;: UVec3,
+&lt;&#x2F;span&gt;&lt;span&gt;    #[spirv(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;storage_buffer&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;descriptor_set&lt;&#x2F;span&gt;&lt;span&gt; = 0, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;binding&lt;&#x2F;span&gt;&lt;span&gt; = 0)]
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;buffer&lt;&#x2F;span&gt;&lt;span&gt;: &amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;mut&lt;&#x2F;span&gt;&lt;span&gt; [&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;u32&lt;&#x2F;span&gt;&lt;span&gt;],
+&lt;&#x2F;span&gt;&lt;span&gt;) {
+&lt;&#x2F;span&gt;&lt;span&gt;    buffer[gid.x as &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;usize&lt;&#x2F;span&gt;&lt;span&gt;] = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;At the beginning, we have some magical incantations probably copied from the
+rust-gpu repository. I think they allow the &lt;code&gt;#[spirv]&lt;&#x2F;code&gt; attribute to work in the
+&lt;code&gt;main_cs&lt;&#x2F;code&gt; function&#x27;s arguments. Then, we import &lt;code&gt;UVec3&lt;&#x2F;code&gt; from glam, a maths
+library which comes with &lt;code&gt;spirv_std&lt;&#x2F;code&gt;. This type is effectively &lt;code&gt;(u32, u32, u32)&lt;&#x2F;code&gt;
+and it is the type of the &lt;code&gt;gid&lt;&#x2F;code&gt; argument, which is the same as
+&lt;code&gt;gl_GlobalInvocationID&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;On the main function there is an attribute telling the compiler that this is the
+entry point of a compute shader whose work group size is (8, 1, 1), and in the
+arguments we see the global ID and a buffer of &lt;code&gt;u32&lt;&#x2F;code&gt;s, which is the first
+binding in descriptor set 0. I&#x27;m pretty sure &amp;quot;descriptor set&amp;quot; is the Vulkan term
+for bind group, which would make sense because it is possible to pass multiple
+bind groups to a shader.&lt;&#x2F;p&gt;
+&lt;p&gt;Overall, the shader sets 8 elements of the buffer to &lt;code&gt;1&lt;&#x2F;code&gt;, and the runner runs it
+64 times. Only the x dimension is used because the buffer is 1-dimensional.
+By running the program, we can see that it does as expected and prints out a
+long list of ones (512 of them), all of which came from the GPU!&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;wow&quot;&gt;&lt;a class=&quot;anchor-link&quot; href=&quot;#wow&quot; aria-label=&quot;Anchor link for: wow&quot;&gt;&amp;num;&lt;&#x2F;a&gt;
+Wow&lt;&#x2F;h2&gt;
+&lt;p&gt;Phew! That was a lot of strange words. Arguably, we didn&#x27;t achieve very much -
+all we did was set some bits to new values, but isn&#x27;t that all that computers do
+anyway? I&#x27;d say that we did achieve a lot. We started out knowing a couple of
+concepts about predication or whatever and ended up running a whole entire
+program on a processor widely regarded as &amp;quot;for wizards&amp;quot; (not a real quote).
+Who&#x27;s the wizard now? You are! If you got this far, I&#x27;m proud of you, and you
+should be proud of yourself. Go and make yourself a cup of tea or something as a
+reward. When you get back, there might even be some more wizardry to look at 😉&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;div class=&quot;prev-next&quot;&gt;
+    &lt;a href=&quot;https:&#x2F;&#x2F;blog.krx.sh&#x2F;gpus&#x2F;2-architecture&#x2F;&quot;&gt; Previous&lt;&#x2F;a&gt;
+    &amp;nbsp;|&amp;nbsp;
+    Next
+&lt;&#x2F;div&gt;
+</content>
+    </entry>
+    <entry xml:lang="en">
+        <title>GPUs, Part 2: Architecture</title>
+        <published>2021-11-14T00:00:00+00:00</published>
+        <updated>2021-11-14T00:00:00+00:00</updated>
+        <author>
+          <name>Rose Hudson</name>
+        </author>
+        <link rel="alternate" href="https://blog.krx.sh/gpus/2-architecture/" type="text/html"/>
+        <id>https://blog.krx.sh/gpus/2-architecture/</id>
+        
+        <summary type="html">&lt;p&gt;What kind of maths can we do on a GPU? How does it get done so quickly? What the
+hell is a &amp;quot;warp&amp;quot;? Find out all of this and more in today&#x27;s episode.&lt;&#x2F;p&gt;
+</summary>
+        
+        <content type="html">&lt;p&gt;What kind of maths can we do on a GPU? How does it get done so quickly? What the
+hell is a &amp;quot;warp&amp;quot;? Find out all of this and more in today&#x27;s episode.&lt;&#x2F;p&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h2 id=&quot;parallel-processing&quot;&gt;&lt;a class=&quot;anchor-link&quot; href=&quot;#parallel-processing&quot; aria-label=&quot;Anchor link for: parallel-processing&quot;&gt;&amp;num;&lt;&#x2F;a&gt;
+Parallel processing&lt;&#x2F;h2&gt;
+&lt;p&gt;In CPU land, you can sometimes speed up data processing by splitting the data into
+parts, and processing multiple parts at the same time. There are two ways of
+doing this.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;multiprocessing&quot;&gt;&lt;a class=&quot;anchor-link&quot; href=&quot;#multiprocessing&quot; aria-label=&quot;Anchor link for: multiprocessing&quot;&gt;&amp;num;&lt;&#x2F;a&gt;
+Multiprocessing&lt;&#x2F;h3&gt;
+&lt;p&gt;The most common way is multiprocessing, where there are multiple CPUs within a
+computer, and code can be run on all of them at the same time. In this case,
+it&#x27;s as if there are multiple computers all working on a portion of the task, except
+the CPUs in a multiprocessing system share resources such as main memory to make
+communication between them much faster than if they were in separate computers.&lt;&#x2F;p&gt;
+&lt;p&gt;Writing programs to take advantage of such an architecture is fairly easy
+because once the task can be split into parts, the development process feels
+like writing separate programs to handle each part. Sometimes it&#x27;s the same
+program that handles every part, in which case you only have to write one
+program, and life is good.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;simd&quot;&gt;&lt;a class=&quot;anchor-link&quot; href=&quot;#simd&quot; aria-label=&quot;Anchor link for: simd&quot;&gt;&amp;num;&lt;&#x2F;a&gt;
+SIMD&lt;&#x2F;h3&gt;
+&lt;p&gt;On the other end of the spectrum, many modern CPUs support a method of processing
+called SIMD - Single Instruction (stream) Multiple Data (streams). In a CPU with
+SIMD, there is still only one control flow path. That is, when the CPU reaches
+some control flow in the program such as an if statement or loop, the CPU either
+is executing the body or it isn&#x27;t. Hence, &amp;quot;single instruction stream&amp;quot;.&lt;&#x2F;p&gt;
+&lt;p&gt;Although there can only be one instruction executing at a time, these
+instructions can perform the same operation on multiple sets of operands
+simultaneously. A processor that can operate on 8 sets of operands in this way
+is said to have 8 SIMD lanes. For example, the &lt;code&gt;vmulps&lt;&#x2F;code&gt; instruction from x86 can
+be used to multiply 8 pairs of numbers, producing 8 results. Each pair is
+processed independently of the others, and they are processed in parallel.&lt;&#x2F;p&gt;
+&lt;p&gt;This style of computation is very well suited to a select few applications. For
+example, to change the volume of a buffer of audio samples, each sample must be
+multiplied by some scale factor. In this case, SIMD can be used without much
+thought, and if you&#x27;re lucky your compiler will transform the naïve for loop
+implementation into machine code that makes use of SIMD instructions. This
+transformation is called auto-vectorisation, and it can be demonstrated with
+the following Rust function:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;pub fn &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;scale&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;buffer&lt;&#x2F;span&gt;&lt;span&gt;: &amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;mut&lt;&#x2F;span&gt;&lt;span&gt; [&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;f32&lt;&#x2F;span&gt;&lt;span&gt;; 8]) {
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;for&lt;&#x2F;span&gt;&lt;span&gt; value in buffer.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;iter_mut&lt;&#x2F;span&gt;&lt;span&gt;() {
+&lt;&#x2F;span&gt;&lt;span&gt;        *value *= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;4.0&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Compiling with &lt;code&gt;-Ctarget-cpu=haswell&lt;&#x2F;code&gt; to enable AVX2 gives the following
+assembly:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;&amp;lt;simd::scale&amp;gt;:
+&lt;&#x2F;span&gt;&lt;span&gt;c4 e2 7d 18 05 00 00    vbroadcastss 0x0(%rip),%ymm0
+&lt;&#x2F;span&gt;&lt;span&gt;00 00
+&lt;&#x2F;span&gt;&lt;span&gt;c5 fc 59 07             vmulps (%rdi),%ymm0,%ymm0
+&lt;&#x2F;span&gt;&lt;span&gt;c5 fc 11 07             vmovups %ymm0,(%rdi)
+&lt;&#x2F;span&gt;&lt;span&gt;c5 f8 77                vzeroupper
+&lt;&#x2F;span&gt;&lt;span&gt;c3                      ret
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Here we can see only one instruction actually doing any multiplication
+(&lt;code&gt;vmulps&lt;&#x2F;code&gt;) because this instruction can operate on registers containing 8 values
+each. Since the function only operates on 8 values, there aren&#x27;t even any
+branches in the body.&lt;&#x2F;p&gt;
+&lt;p&gt;However, auto-vectorisation is really hard, and you kind of have to cross your
+fingers when compiling if you want to take advantage of it. In GPU land, the
+processors themselves are structured a little differently, and this makes the
+parallelism easier for the compiler to take advantage of. It can also make
+programming these processors easier, as we&#x27;ll see further down.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;how-gpus-do-it&quot;&gt;&lt;a class=&quot;anchor-link&quot; href=&quot;#how-gpus-do-it&quot; aria-label=&quot;Anchor link for: how-gpus-do-it&quot;&gt;&amp;num;&lt;&#x2F;a&gt;
+How GPUs do it&lt;&#x2F;h2&gt;
+&lt;p&gt;Now, we meet something called predication. I don&#x27;t think many people use this
+term, and I had to reverse engineer it from some poorly written Wikipedia
+articles, but the concept was introduced to me fairly clearly in Alyssa
+Rosenzweig&#x27;s talk The Occult and the Apple GPU. Thanks to Alyssa not only for
+the talk but also for responding to my email with a very detailed explanation of
+how GPU architects are constantly battling each other to redefine words in
+different ways. We&#x27;ll meet some of these later.&lt;&#x2F;p&gt;
+&lt;p&gt;The idea is that SIMD is pretty cool, but since it doesn&#x27;t allow for diverging
+control flow across lanes, it&#x27;s not cool enough. Predication allows each lane in
+a SIMD-like processor to independently be enabled or disabled, and this can be
+done using an execution mask, which is a set of bits with one bit per lane; if a
+bit is zero, its corresponding lane does not write to any registers or memory,
+so it is effectively doing no work at all.&lt;&#x2F;p&gt;
+&lt;p&gt;Since we&#x27;re in GPU land now, as promised, we have some new words to learn. The
+lanes in a GPU are more powerful than traditional SIMD lanes, so we call them
+&amp;quot;threads&amp;quot;, to indicate that they&#x27;re cooler and more flexible. The threads come
+in groups called &amp;quot;wavefronts&amp;quot; or &amp;quot;warps&amp;quot;. All threads in a warp share a program
+counter, meaning threads in a warp cannot execute different instructions at the
+same time. The execution mask for a 32-thread warp can either be seen as 1 bit
+per thread, or a single 32-bit mask per warp, depending on which way you look at
+it.&lt;&#x2F;p&gt;
+&lt;p&gt;Here&#x27;s a visual example of divergence in a program running on a
+hypothetical 4-thread warp. The lines down the side represent whether that
+thread is enabled at that point in the program.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;0 1 2 3
+&lt;&#x2F;span&gt;&lt;span&gt;| | | |     let mut array = [0, 1, 2, 3];
+&lt;&#x2F;span&gt;&lt;span&gt;| | | |
+&lt;&#x2F;span&gt;&lt;span&gt;| | | |     if array[thread_id] % 2 == 0 {
+&lt;&#x2F;span&gt;&lt;span&gt;|   |           array[thread_id] += 1;
+&lt;&#x2F;span&gt;&lt;span&gt;|   |       }
+&lt;&#x2F;span&gt;&lt;span&gt;| | | |
+&lt;&#x2F;span&gt;&lt;span&gt;| | | |     &#x2F;&#x2F; at this point the array is [1, 1, 3, 3]
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Because there is only one program counter per warp, if the condition of an if
+statement evaluates to false in a given thread, that thread has to wait it out
+by staying disabled until the whole warp gets to the end of the statement. This
+means that if you have to use an if statement, it&#x27;s best to keep the body short
+and&#x2F;or to have a condition that is usually true, to maximise how many threads
+are enabled at once.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;but-why&quot;&gt;&lt;a class=&quot;anchor-link&quot; href=&quot;#but-why&quot; aria-label=&quot;Anchor link for: but-why&quot;&gt;&amp;num;&lt;&#x2F;a&gt;
+But why?&lt;&#x2F;h3&gt;
+&lt;p&gt;By adding predication to SIMD, we give ourselves the ability to write programs
+in a way that looks much more like the single-threaded scalar processing that we
+are all used to. The program from above, written using SIMD, might look like
+this:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;let mut&lt;&#x2F;span&gt;&lt;span&gt; array = u32x4::new(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;3&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; one = u32x4::splat(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; mask = (array &amp;amp; one).&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;eq&lt;&#x2F;span&gt;&lt;span&gt;(one);
+&lt;&#x2F;span&gt;&lt;span&gt;array = mask.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;select&lt;&#x2F;span&gt;&lt;span&gt;(array, array + &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;This differs from the GPU-style program above in one striking way: this program
+describes calculations in terms of vectors (&lt;code&gt;u32x4&lt;&#x2F;code&gt;, i.e. a group of four
+integers) whereas the GPU-style code describes the calculations individually,
+achieving parallelism implicitly by using the &lt;code&gt;thread_id&lt;&#x2F;code&gt; to index into the
+data, which splits the data into independent chunks. This means that the
+GPU-style code can be used on any size of array without modifying the code
+itself.&lt;&#x2F;p&gt;
+&lt;p&gt;Another important difference is that the GPU-style code looks to me to be far
+easier to write (and it was), partially due to this scalar&#x2F;vector code style
+distinction. Furthermore, the resulting machine code of the SIMD program is
+probably quite inefficient due to having to save all of the results of &lt;code&gt;array + 1&lt;&#x2F;code&gt; into registers even though it doesn&#x27;t end up using them. So, SIMD is good
+for programs that need to do the same thing a bunch of times, but predicated
+SIMD is good for programs that need to do &lt;em&gt;nearly&lt;&#x2F;em&gt; the same thing a bunch of
+times, which is way more programs.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;instruction-sets&quot;&gt;&lt;a class=&quot;anchor-link&quot; href=&quot;#instruction-sets&quot; aria-label=&quot;Anchor link for: instruction-sets&quot;&gt;&amp;num;&lt;&#x2F;a&gt;
+Instruction sets&lt;&#x2F;h2&gt;
+&lt;p&gt;At the beginning of this post, I asked &amp;quot;what kind of maths can we do on a GPU?&amp;quot;.
+The answer will vary depending on the GPU, so I looked at the manual for AMD&#x27;s
+GCN 3 architecture&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#1&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;, because I have a GCN 4 card, and apparently they&#x27;re similar
+enough that AMD didn&#x27;t release a new manual.&lt;&#x2F;p&gt;
+&lt;p&gt;GCN 3 provides all the arithmetic stuff you&#x27;d expect; add, sub, mul, div on
+integers and single-precision floats are there along with some logical
+operators, but it also has loads of others. There are a few convenient
+instructions for graphics programming like trig functions, square root,
+reciprocal square root, and even cubemap helpers. As if we weren&#x27;t spoiled
+already, there are some logs and exps as well.&lt;&#x2F;p&gt;
+&lt;p&gt;Skimming some documents for Apple&#x27;s G13&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#2&quot;&gt;2&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt; and Arm&#x27;s Bifrost&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#3&quot;&gt;3&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt; instruction
+sets indicates that most of these instructions are fairly standard.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;&lt;a class=&quot;anchor-link&quot; href=&quot;#conclusion&quot; aria-label=&quot;Anchor link for: conclusion&quot;&gt;&amp;num;&lt;&#x2F;a&gt;
+Conclusion&lt;&#x2F;h2&gt;
+&lt;p&gt;CPUs have some ways to achieve parallelism, but they are restricted by the way
+people expect to be able to write programs for them. GPUs had no such
+restriction, so their designs can lean into parallelism as much as they want. As
+we&#x27;ve seen, this leads to an unfamiliar but powerful architecture.&lt;&#x2F;p&gt;
+&lt;p&gt;In the next few posts, I&#x27;ll explore writing and running programs on a GPU, and
+some real-world examples of the architectural concepts we&#x27;ve met so far.&lt;&#x2F;p&gt;
+&lt;div class=&quot;footnote-definition&quot; id=&quot;1&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;1&lt;&#x2F;sup&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;developer.amd.com&#x2F;wordpress&#x2F;media&#x2F;2013&#x2F;12&#x2F;AMD_GCN3_Instruction_Set_Architecture_rev1.1.pdf&quot;&gt;https:&#x2F;&#x2F;developer.amd.com&#x2F;wordpress&#x2F;media&#x2F;2013&#x2F;12&#x2F;AMD_GCN3_Instruction_Set_Architecture_rev1.1.pdf&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;div class=&quot;footnote-definition&quot; id=&quot;2&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;2&lt;&#x2F;sup&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;dougallj.github.io&#x2F;applegpu&#x2F;docs.html&quot;&gt;https:&#x2F;&#x2F;dougallj.github.io&#x2F;applegpu&#x2F;docs.html&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;div class=&quot;footnote-definition&quot; id=&quot;3&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;3&lt;&#x2F;sup&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;cgit.freedesktop.org&#x2F;mesa&#x2F;mesa&#x2F;tree&#x2F;src&#x2F;panfrost&#x2F;bifrost&#x2F;ISA.xml?id=07a5ec83fb09de861d940fea69b49cefb08fda75&quot;&gt;https:&#x2F;&#x2F;cgit.freedesktop.org&#x2F;mesa&#x2F;mesa&#x2F;tree&#x2F;src&#x2F;panfrost&#x2F;bifrost&#x2F;ISA.xml?id=07a5ec83fb09de861d940fea69b49cefb08fda75&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;hr &#x2F;&gt;
+&lt;div class=&quot;prev-next&quot;&gt;
+    &lt;a href=&quot;https:&#x2F;&#x2F;blog.krx.sh&#x2F;gpus&#x2F;1-intro&#x2F;&quot;&gt; Previous&lt;&#x2F;a&gt;
+    &amp;nbsp;|&amp;nbsp;
+    &lt;a href=&quot;https:&#x2F;&#x2F;blog.krx.sh&#x2F;gpus&#x2F;3-first-program&#x2F;&quot;&gt;Next&lt;&#x2F;a&gt;
+&lt;&#x2F;div&gt;
+</content>
+    </entry>
+    <entry xml:lang="en">
+        <title>GPUs, Part 1: The Feynman Technique</title>
+        <published>2021-11-12T00:00:00+00:00</published>
+        <updated>2021-11-12T00:00:00+00:00</updated>
+        <author>
+          <name>Rose Hudson</name>
+        </author>
+        <link rel="alternate" href="https://blog.krx.sh/gpus/1-intro/" type="text/html"/>
+        <id>https://blog.krx.sh/gpus/1-intro/</id>
+        
+        <summary type="html">&lt;p&gt;There&#x27;s a lot of writing about the Feynman Technique, but essentially it boils
+down to the idea that if you want to learn something, you should try to
+explain it to a 12-year-old. I&#x27;m not a 12-year-old, but I am a first year
+compsci, which is basically the same thing. I have two problems with GPUs.
+Firstly, I don&#x27;t understand them. Secondly, I don&#x27;t know of any
+12-year-old-level resources to learn with. Here, I&#x27;ll try to kill two birds with
+one stone.&lt;&#x2F;p&gt;
+</summary>
+        
+        <content type="html">&lt;p&gt;There&#x27;s a lot of writing about the Feynman Technique, but essentially it boils
+down to the idea that if you want to learn something, you should try to
+explain it to a 12-year-old. I&#x27;m not a 12-year-old, but I am a first year
+compsci, which is basically the same thing. I have two problems with GPUs.
+Firstly, I don&#x27;t understand them. Secondly, I don&#x27;t know of any
+12-year-old-level resources to learn with. Here, I&#x27;ll try to kill two birds with
+one stone.&lt;&#x2F;p&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
+&lt;p&gt;In this series I&#x27;ll explore GPUs as general-purpose compute engines, their
+characteristics, and how one can learn to harness them for good. During this
+journey I&#x27;ll try to document what I find in a way that allows any curious
+computer scientist to follow along at home. We can worry about the 12-year-olds
+later.&lt;&#x2F;p&gt;
+&lt;p&gt;My favourite language is Rust and I don&#x27;t really know how to write anything else
+so I&#x27;ll be aiming to use only Rust, at least on the CPU side. If possible, I&#x27;ll
+use &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;EmbarkStudios&#x2F;rust-gpu&quot;&gt;rust-gpu&lt;&#x2F;a&gt; for GPU-side code as
+well.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;why-bother&quot;&gt;&lt;a class=&quot;anchor-link&quot; href=&quot;#why-bother&quot; aria-label=&quot;Anchor link for: why-bother&quot;&gt;&amp;num;&lt;&#x2F;a&gt;
+Why bother&lt;&#x2F;h2&gt;
+&lt;p&gt;GPUs are becoming more relevant as new people come up with new work to do, and
+Moore&#x27;s law fails to deliver on its promise of increasing single thread
+performance to do it with&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#1&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;. GPUs sidestep this problem by adding more
+threads. Their main strength is in tasks where some operation is applied over
+many inputs independently (like with SIMD - more on that later), but with some
+clever tricks they can beat CPUs in tasks that at a glance don&#x27;t seem parallel
+at all. It&#x27;s hard to turn a traditional sequential program into one that plays
+nicely on a GPU, but depending on the workload, it can really pay off. This
+transformation is what I aim to get familiar with.&lt;&#x2F;p&gt;
+&lt;div class=&quot;quote&quot;&gt;
+    &lt;h3 class=&quot;quote-text&quot;&gt;“They do, like, images and shit, right?”&lt;&#x2F;h3&gt;
+    &lt;span class=&quot;quote-author&quot;&gt;- My friend Drew&lt;&#x2F;span&gt;
+&lt;&#x2F;div&gt;
+&lt;p&gt;Although they are big and scary and foreign, I think that with some time and
+some honest work even a first year like me could tame the beast. I want to,
+because they&#x27;re really fast, and it would make me feel powerful and smart. Your
+motives may be different, and that&#x27;s OK.&lt;&#x2F;p&gt;
+&lt;p&gt;To be clear, I&#x27;m not too bothered about the traditional 3D graphics pipeline
+with its ROPs and TMUs and geometry. Although it would be nice to understand
+that stuff, I&#x27;ll be focusing more on general computation to start with.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;goals&quot;&gt;&lt;a class=&quot;anchor-link&quot; href=&quot;#goals&quot; aria-label=&quot;Anchor link for: goals&quot;&gt;&amp;num;&lt;&#x2F;a&gt;
+Goals&lt;&#x2F;h2&gt;
+&lt;p&gt;My personal goal for this series is to be able to understand
+&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;linebender&#x2F;piet-gpu&quot;&gt;piet-gpu&lt;&#x2F;a&gt; from start to finish.
+piet-gpu is a 2D vector graphics renderer designed to leverage GPU compute to do
+what has historically been done on CPUs. Whether I&#x27;ll be able to do this will
+probably become clear in a few months, but really it&#x27;s not about the treasure,
+it&#x27;s about the friends we made along the way.&lt;&#x2F;p&gt;
+&lt;p&gt;To get to piet-gpu, by my estimates, we&#x27;ll need to understand a few things about
+GPUs:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;GPU architecture - how do they run programs?&lt;&#x2F;li&gt;
+&lt;li&gt;CPU-side APIs - how to tell a GPU to run a program&lt;&#x2F;li&gt;
+&lt;li&gt;I&#x2F;O - moving data between GPU memory and main memory&lt;&#x2F;li&gt;
+&lt;li&gt;Algorithmic techniques - taking tasks that look sequential and reframing them
+until they can be done efficiently in parallel&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;&lt;a class=&quot;anchor-link&quot; href=&quot;#conclusion&quot; aria-label=&quot;Anchor link for: conclusion&quot;&gt;&amp;num;&lt;&#x2F;a&gt;
+Conclusion&lt;&#x2F;h2&gt;
+&lt;p&gt;This will be a fun exercise in self-motivation I guess. I&#x27;ve learned some cool
+stuff so far, so I&#x27;m optimistic about how far we&#x27;ll get. The next post, a first
+look into GPU architecture, should come quite soon. I hope to see you there!&lt;&#x2F;p&gt;
+&lt;div class=&quot;footnote-definition&quot; id=&quot;1&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;1&lt;&#x2F;sup&gt;
+&lt;p&gt;This isn&#x27;t really what Moore&#x27;s law is, but it&#x27;s true that single thread
+performance isn&#x27;t growing in the same way it used to.
+&lt;a href=&quot;https:&#x2F;&#x2F;preshing.com&#x2F;20120208&#x2F;a-look-back-at-single-threaded-cpu-performance&#x2F;&quot;&gt;Here&lt;&#x2F;a&gt;
+is an article from 2012 showing the effect already being visible.&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;hr &#x2F;&gt;
+&lt;div class=&quot;prev-next&quot;&gt;
+     Previous
+    &amp;nbsp;|&amp;nbsp;
+    &lt;a href=&quot;https:&#x2F;&#x2F;blog.krx.sh&#x2F;gpus&#x2F;2-architecture&#x2F;&quot;&gt;Next&lt;&#x2F;a&gt;
+&lt;&#x2F;div&gt;
+</content>
+    </entry>
+    <entry xml:lang="en">
+        <title>about me</title>
+        <published>2021-10-31T00:00:00+00:00</published>
+        <updated>2021-10-31T00:00:00+00:00</updated>
+        <author>
+          <name>Rose Hudson</name>
+        </author>
+        <link rel="alternate" href="https://blog.krx.sh/about/" type="text/html"/>
+        <id>https://blog.krx.sh/about/</id>
+        
+        <content type="html">&lt;p&gt;Hi! I&#x27;m Rose. I&#x27;m a second year CS student at the University of Bristol, and I&#x27;m
+in love with Rust. I want it to take over the world some day. When I&#x27;m not
+fangirling over Rust, I&#x27;m usually complaining about something else, but don&#x27;t
+let that fool you. A lot of stuff is actually quite cool, in my opinion.&lt;&#x2F;p&gt;
+&lt;p&gt;I have a few hobby projects:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;rosehuds&#x2F;kerux&quot;&gt;kerux&lt;&#x2F;a&gt;, a matrix server&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;rosehuds&#x2F;kernel&quot;&gt;kernel&lt;&#x2F;a&gt;, a kernel targeting aarch64 - pending name change :D&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;rosehuds&#x2F;boolean-parser&quot;&gt;boolean-parser&lt;&#x2F;a&gt;, a program for me and a friend to learn Haskell the fun way&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;rosehuds&#x2F;logic-graph&quot;&gt;logic-graph&lt;&#x2F;a&gt; + &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;rosehuds&#x2F;logicism&quot;&gt;logicism&lt;&#x2F;a&gt;, a combinatorial logic simulator and its ui&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+    </entry>
+</feed>
